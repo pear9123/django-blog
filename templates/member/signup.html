@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="HandheldFriendly" content="True" />
+      <meta name="MobileOptimized" content="320" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title> 흥청망청 계모임 </title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/login_form.css' %}" />
+  </head>
+{% block content %}
+<div class="login">
+	<h1>JOIN</h1>
+	<form action="" method="post">
+		{% csrf_token %}
+		{% for field in signup_form %}
+				{{ field }}
+				{% if field.errors %}
+					{% for error in field.errors %}
+					<span class="help-block">{{ error }}</span>
+					{% endfor %}
+				{% endif %}
+		{% endfor %}
+
+		{% if signup_form.non_field_errors %}
+			{% for error in login_form.non_field_errors %}
+			<p class="text-danger"><b>{{ error }}</b></p>
+			{% endfor %}
+		{% endif %}
+		<button class="btn btn-primary btn-block">회원가입</button>
+	</form>
+</div>
+{% endblock %}

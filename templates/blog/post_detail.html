@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block header %}
+<h1 class="post-title">{{post.title}}</h1>
+<h2 class="post-date">
+    <time datetime="{{ post.modify_date }}">{{ post.modify_date }}</time>
+</h2>
+<h2 class="post-write">{{ post.title }}</h2>
+{% endblock %}
+{% block content %}
+ <div class="post-content">
+   {% if post.photo %}
+      <img src="{{ post.photo.url }}"/>
+   {% endif %}
+{{post.content|linebreaksbr}}
+ </div>
+ <hr/>
+<a href="/blog"> 처음으로 </a>
+{% endblock %}
