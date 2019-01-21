@@ -20,9 +20,10 @@
   </header>
   <div class="container" style="border-bottom: 1px solid #303030; text-align:center;">
     {% if user.is_authenticated %}
-      <a href="#"><h4>HI, {{user.username}}</h4></a><a href="/member/logout"><h4>로그아웃</h4></a>
+      <img src={{user.img_profile.url}} class="main_img">
+      <a href="/member/logout"><h4>LOGOUT</h4></a>
     {% else %}
-      <a href="/member/login"><h4>로그인</h4></a> <a href="/member/signup"><h4>회원가입</h4></a>
+      <a href="/member/login"><h4>LOGIN</h4></a> <a href="/member/signup"><h4>JOIN</h4></a>
     {% endif %}
   </div>
   <div id="post-index" class="container">

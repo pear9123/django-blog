@@ -4,6 +4,7 @@ from django.conf import settings
 # Create your models here.
 class Post(models.Model):
     title = models.CharField("제목", max_length=100)
+#    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     slug = models.SlugField("Slug", unique=True)
     description = models.CharField("설명", max_length=200, blank=True)
     content = models.TextField("본문")

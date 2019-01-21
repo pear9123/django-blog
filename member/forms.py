@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import get_user_model
+from django.forms import(ModelForm,TextInput,EmailField,ImageField)
 
 User = get_user_model()
 
@@ -62,3 +63,5 @@ class SignupForm(forms.Form):
                 username=self.cleaned_data['username'],
                 password=self.cleaned_data['password2']
             )
+
+# 내정보

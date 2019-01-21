@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django-blog', # 데이터베이스 이름
+        'USER': 'root', # 접속 사용자 이름
+        'PASSWORD': '1234', # 접속 비밀번호
+        'HOST': 'localhost',
+        'PORT': '3306', # 기본 포트
     }
 }
 
