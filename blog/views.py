@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
-from .models import Post
+from .models import Post,PostImage
 
 
 # Create your views here.
@@ -11,4 +11,12 @@ class PostLV(ListView):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    return render(request, 'blog/post_detail.html',{'post':post})
+    property = Post.objects.get(pk=1)
+    image_list = property.images.all()
+
+    context = {
+        'post' : post,
+        'image_list' : image_list,
+    }
+
+    return render(request, 'blog/post_detail.html', context)

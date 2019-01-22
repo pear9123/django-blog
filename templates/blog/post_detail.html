@@ -8,9 +8,10 @@
 {% endblock %}
 {% block content %}
  <div class="post-content">
-   {% if post.photo %}
-      <img src="{{ post.photo.url }}"/>
-   {% endif %}
+   {% for postimage in image_list %}
+     <img src="{{ postimage.image.url }}">
+   {% endfor %}
+   <br/>
 {{post.content|linebreaksbr}}
  </div>
  <hr/>
