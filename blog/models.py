@@ -19,3 +19,11 @@ class Post(models.Model):
 class PostImage(models.Model):
     property = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField()
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    content = models.TextField()
+
+    def __str__(self):
+        return f'Comment (PK: {self.pk}, Author: {self.author.username})'

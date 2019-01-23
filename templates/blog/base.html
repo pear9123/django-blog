@@ -15,17 +15,19 @@
 
   <header class="site-header">
     <div class="site-title-wrapper">
-      <h1 class="site-title"><a href="/"> 흥청망청 블로그 </a></h1>
+      <h1 class="site-title"><a href="/">흥청망청 블로그 </a></h1>
+    </div>
+    <div class="container" style="border-bottom: 1px solid #303030; text-align:center;">
+      {% if user.is_authenticated %}
+        <img src={{user.img_profile.url}} class="main_img">
+        <a href="/member/logout"><img src="/static/images/logout.png" ></a>
+      {% else %}
+        <a href="/member/login"><img src="/static/images/login.png" ></a>
+        <a href="/member/signup"><img src="/static/images/join.png" ></a>
+      {% endif %}
     </div>
   </header>
-  <div class="container" style="border-bottom: 1px solid #303030; text-align:center;">
-    {% if user.is_authenticated %}
-      <img src={{user.img_profile.url}} class="main_img">
-      <a href="/member/logout"><h4>LOGOUT</h4></a>
-    {% else %}
-      <a href="/member/login"><h4>LOGIN</h4></a> <a href="/member/signup"><h4>JOIN</h4></a>
-    {% endif %}
-  </div>
+
   <div id="post-index" class="container">
   <header class="post-header">
     {% block header %}

@@ -15,5 +15,23 @@
 {{post.content|linebreaksbr}}
  </div>
  <hr/>
+
+ <div class="panel-body">
+ 		{% if post.comments.exists %}
+ 		<ul class="comment-list">
+ 			{% for comment in post.comments.all %}
+ 			<li class="comment">
+ 				<span class="comment-author">{{ comment.author }}</span>
+ 				<span class="comment-content">{{ comment.content }}</span>
+ 			</li>
+ 			{% endfor %}
+ 		</ul>
+    {% endif %}
+</div>
+
+<!--   <div><img src="{{comment.author.img_profile.url}}" class="comment-image"></div>  -->
+
+ <hr/>
 <a href="/blog"> 처음으로 </a>
+
 {% endblock %}
