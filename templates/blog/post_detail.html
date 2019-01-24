@@ -20,12 +20,21 @@
  		{% if post.comments.exists %}
  		<ul class="comment-list">
  			{% for comment in post.comments.all %}
- 			<li class="comment">
+ 			<li class="comment" style="height:55px;">
+        <span class="comment-image"><img src="{{ comment.author.img_profile.url }}" class="commant-user-image"></span>
  				<span class="comment-author">{{ comment.author }}</span>
  				<span class="comment-content">{{ comment.content }}</span>
  			</li>
  			{% endfor %}
  		</ul>
+    {% endif %}
+    {% if user.is_authenticated %}
+      <form action="{% url 'blog:comment_create' post_pk=post.pk %}?next={% url 'blog:detail' post_pk=post.pk %}"
+      method="POST"
+      class="comment-form">
+      {% csrf_token %}
+      {{ comment_form.content }}
+  		</form>
     {% endif %}
 </div>
 

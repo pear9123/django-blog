@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField("제목", max_length=100)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    slug = models.SlugField("Slug", unique=True)
     description = models.CharField("설명", max_length=200, blank=True)
     content = models.TextField("본문")
     photo = models.ImageField(blank=True, null=True)

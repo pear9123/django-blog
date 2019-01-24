@@ -19,7 +19,11 @@
     </div>
     <div class="container" style="border-bottom: 1px solid #303030; text-align:center;">
       {% if user.is_authenticated %}
-        <img src={{user.img_profile.url}} class="main_img">
+        {% if user.img_profile == ''%}
+          <img src="/media/user/ben.jpg" class="main_img">
+          {% else %}
+          <img src={{user.img_profile.url}} class="main_img">
+        {% endif %}
         <a href="/member/logout"><img src="/static/images/logout.png" ></a>
       {% else %}
         <a href="/member/login"><img src="/static/images/login.png" ></a>

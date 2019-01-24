@@ -25,7 +25,10 @@ urlpatterns = [
     path('', PostLV.as_view(), name='index'),
     path('blog/', PostLV.as_view(), name='list'),
     path('blog/post/', PostLV.as_view(), name='list'),
-    path('blog/post/<slug>', post_detail, name='detail'),
+    path('blog/post/<int:post_pk>', post_detail, name='detail'),
+
+    # Comment
+    path('<int:post_pk>/comment/create/', views.comment_create, name='comment_create'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

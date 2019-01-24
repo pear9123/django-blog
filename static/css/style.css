@@ -806,3 +806,36 @@ pre {
 .panel-body{
   padding-top: 13px;
 }
+
+.content{
+  width: 100%;
+  height: 50px;
+}
+
+.comment-image{
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.comment-author{
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-right: 25px;
+}
+
+.comment-content{
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  padding-bottom: 10px;
+}
+
+.commant-user-image{
+  width: 50px;
+  border-radius: 150px;
+  height: 50px;
+}
