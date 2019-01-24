@@ -21,7 +21,7 @@ class SignupForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'placeholder': 'username',
+                'placeholder': 'id',
             }
         )
     )
@@ -37,6 +37,14 @@ class SignupForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 'placeholder': 'password2',
+            }
+        )
+    )
+    # 이름 입력 필드
+    first_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder':'fullname',
             }
         )
     )
@@ -61,7 +69,8 @@ class SignupForm(forms.Form):
         if self.is_valid():
             return User.objects.create_user(
                 username=self.cleaned_data['username'],
-                password=self.cleaned_data['password2']
+                password=self.cleaned_data['password2'],
+                first_name=self.cleaned_data['first_name'],
             )
 
 # 내정보

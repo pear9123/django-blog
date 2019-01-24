@@ -22,7 +22,7 @@
  			{% for comment in post.comments.all %}
  			<li class="comment" style="height:55px;">
         <span class="comment-image"><img src="{{ comment.author.img_profile.url }}" class="commant-user-image"></span>
- 				<span class="comment-author">{{ comment.author }}</span>
+ 				<span class="comment-author">{{ comment.author.first_name }}</span>
  				<span class="comment-content">{{ comment.content }}</span>
  			</li>
  			{% endfor %}
