@@ -22,7 +22,7 @@
         {% if user.img_profile == ''%}
           <img src="/media/user/ben.jpg" class="main_img">
           {% else %}
-          <img src={{user.img_profile.url}} class="main_img">
+          <a href="#"><img src={{user.img_profile.url}} class="main_img"></a>
         {% endif %}
         <a href="/member/logout"><img src="/static/images/logout.png" ></a>
       {% else %}
